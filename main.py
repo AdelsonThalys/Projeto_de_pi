@@ -3,7 +3,7 @@ from os import path
 from sprites import *
 from tilemap import *
 
-class Game:
+class Game():
     def __init__(self):
         pg.init()
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
@@ -14,8 +14,10 @@ class Game:
 
     def load_data(self):
         game_folder = path.dirname(__file__)
+        texturas = path.join(game_folder, "texturas")
         self.map = Map(path.join(game_folder, 'map.txt1'))
-
+        self.player_img = pg.image.load(path.join(texturas, player_img)).convert_alpha()
+        self.dirt_img =  pg.image.load(path.join(texturas, dirt_img)).convert_alpha()
     def new(self):
         # initialize all variables and do all the setup for a new game
         self.all_sprites = pg.sprite.Group()
