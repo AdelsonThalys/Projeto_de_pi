@@ -17,5 +17,9 @@ TILESIZE = 64
 GRIDWIDTH = WIDTH / TILESIZE
 GRIDHEIGHT = HEIGHT / TILESIZE
 
+#cenario
+dirt_img = 'dirt.png'
+
 # Player settings
-PLAYER_SPEED = 200
+PLAYER_SPEED = 500
+player_img = 'player.png'
