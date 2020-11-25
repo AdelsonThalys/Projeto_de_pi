@@ -6,7 +6,7 @@ import pygame as pg
 import sys
 from random import choice, random
 from os import path
-from settings import *
+from config import *
 from sprites import *
 from tilemap import *
 
