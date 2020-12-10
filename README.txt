@@ -5,6 +5,7 @@ Slide de explicação do projeto: https://docs.google.com/presentation/d/1uc-dvx
 participantes do projeto 
 
 - Adelson Thalys - 2408142  Lider
-- Gabriel Vitor - 2801737   Programdor
+- Gabriel Vitor - 2801737   Programador
 - Diego vinius 2422918      Programador
 - vinicius Roberto          Escrivão  
+- Jonas Silva - 2381326     designer
