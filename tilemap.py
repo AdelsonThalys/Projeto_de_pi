@@ -1,5 +1,5 @@
 import pygame as pg
-from settings import *
+from config import *
 
 class Map:
     def __init__(self, filename):
