@@ -1,6 +1,8 @@
 import pygame as pg
-from config import *
+from settings import *
+
 vec = pg.math.Vector2
+
 
 class Player(pg.sprite.Sprite):
     def __init__(self, game, x, y):
@@ -23,7 +25,6 @@ class Player(pg.sprite.Sprite):
         self.pos = vec(x, y) * TILESIZE
         self.direction = 0
         self.jumped = False
-
 
     def get_keys(self):
         self.vel = vec(0, 5)
@@ -80,7 +81,7 @@ class Player(pg.sprite.Sprite):
         self.rect.y = self.pos.y
         self.collide_with_walls('y')
 
-        #gravidade
+        # gravidade
         hits = pg.sprite.spritecollide(self, self.game.walls, False)
         if not hits:
             self.vel.y += 5
@@ -88,7 +89,7 @@ class Player(pg.sprite.Sprite):
                 self.vel.y = 30
             self.pos.y += self.vel.y
 
-        #animation
+        # animation
         if self.counter > 10:
             self.index += 1
             self.counter = 0
@@ -98,6 +99,7 @@ class Player(pg.sprite.Sprite):
             self.image = self.images_right[self.index]
         if self.direction == -1:
             self.image = self.images_left[self.index]
+
 
 class Wall(pg.sprite.Sprite):
     def __init__(self, game, x, y):
@@ -112,6 +114,7 @@ class Wall(pg.sprite.Sprite):
         self.rect.x = x * TILESIZE
         self.rect.y = y * TILESIZE
 
+
 class Dialogo:
     def __init__(self):
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
@@ -123,10 +126,11 @@ class Dialogo:
         x, y = caixa_de_dialogo.get_rect().centerx, caixa_de_dialogo.get_rect().centery
         self.screen.blit(fala1, (x, y))
 
+
 class Fundo(pg.sprite.Sprite):
 
     def __init__(self, game):
-        self.groups = game.all_sprites, game.walls
+        self.groups = game.all_sprites, game.background
         pg.sprite.Sprite.__init__(self, self.groups)
         self.game = game
         self.image = pg.image.load('img/fundo.jpg')

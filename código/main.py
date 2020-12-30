@@ -1,9 +1,10 @@
 import pygame as pg
 import sys
 from os import path
-from config import *
+from settings import *
 from sprites import *
 from tilemap import *
+
 
 class Game:
     def __init__(self):
@@ -16,7 +17,6 @@ class Game:
     def load_data(self):
         game_folder = path.dirname(__file__)
         self.map = Map(path.join(game_folder, 'map.txt'))
-        bg = pg.image.load('img/fundo.jpg')
 
     def new(self):
         self.all_sprites = pg.sprite.Group()
@@ -28,8 +28,8 @@ class Game:
                     Wall(self, col, row)
                 if tile == 'P':
                     self.player = Player(self, col, row)
-                if tile == 'B':
-                    Fundo()
+                # if tile == 'B':
+                #    Fundo()
         self.camera = Camera(self.map.width, self.map.height)
 
     def run(self):
@@ -57,9 +57,9 @@ class Game:
 
     def draw(self):
         self.screen.fill(BGCOLOR)
-        #bg_img = pg.image.load('img/fundo.jpg')
-        #pg.transform.scale(bg_img, (WIDTH, HEIGHT))
-        #self.screen.blit(bg_img, (0, 0))
+        bg_img = pg.image.load('img/fundo.jpg')
+        pg.transform.scale(bg_img, (WIDTH, HEIGHT))
+        self.screen.blit(bg_img, (0, 0))
         self.draw_grid()
         for sprite in self.all_sprites:
             self.screen.blit(sprite.image, self.camera.apply(sprite))
@@ -79,6 +79,7 @@ class Game:
 
     def show_go_screen(self):
         pass
+
 
 # create the game object
 g = Game()
